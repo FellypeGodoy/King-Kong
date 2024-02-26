@@ -1,0 +1,166 @@
+#logo {  /* logo */
+        
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    max-width: 10%; 
+    
+
+}
+
+#div-imagem{  /* div da imagem | */
+
+    
+    display: inline-block;
+    
+    
+}
+.div-cabecalho{
+  position:fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: black;
+}
+
+
+.div-btn {  /* div dos botões | */
+
+    display: inline-block;
+
+}
+
+body{ 
+
+    background-color: #d4d4d4;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------botões do cabeçalho */
+
+.box {  
+    width: 140px;
+    float: left;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-left: 40px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+  }
+  
+  .box:before {  /* animação botões */
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(100%);
+  }
+  
+  .box:after {  /* animação botões */
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+  }
+  
+  .box:hover {  /* animação botões */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+  }
+  
+  .box:hover:before {  /* animação botões */
+    border-color: #256e66;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .3s;
+  }
+  
+  .box:hover:after {  /* animação botões */
+    border-color: #256e66;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .5s;
+  }
+  
+  button {  /* animação botões */
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: transparent;
+  }
+
+  /* --------------------------------------------------------------------------------------------------- div master */
+
+.cx-selecao {
+  
+    
+    width: 30%;
+    height: 30%;
+    display: inline-block;
+    padding: 20px;
+    margin-top: 100px;
+    margin-left: 30px;
+}
+
+.quadrado {
+
+    background-color: #256e66;
+    width: 30%;
+    height: 30%;
+    display:inline-block;
+    margin-top: 30px;
+    margin-left: 70px;
+    padding: 20px;
+    padding-right: 350px;
+    padding-bottom: 300px;
+   
+  
+
+}
+
+.opcoes {
+  padding: 17px 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0;
+  background-color: #256e66;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  color: #ffffff;
+}
+
+.opcoes:hover {
+  letter-spacing: 3px;
+  background-color: #000000;
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(0, 0, 0) 0px 7px 29px 0px;
+}
+
+.opcoes:active {
+  letter-spacing: 3px;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: #256e66;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+

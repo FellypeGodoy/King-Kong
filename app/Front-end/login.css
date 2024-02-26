@@ -1,0 +1,93 @@
+
+body { /* body */
+
+        background-color: #2c7d73;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; 
+        margin: 0; 
+    }
+    
+    
+    #imagem {  /* imagem logo */
+        
+        margin-top: 30px;
+        max-width: 50%; 
+        height: auto; 
+    
+    }
+    
+
+    form { /* formulário login */
+    
+        width: 400px; 
+        height: 400px; 
+        border: 1px solid #ccc; 
+        text-align: center;
+        border-radius: 84px;
+        background: #256e66;
+        box-shadow:  30px 30px 59px #205b54,-30px -30px 59px #389f92;
+    }
+
+      
+    #email { /* input de email */
+
+        width: 70%;
+        text-align: left;
+        border: none;
+        padding: 1rem;
+        border-radius: 1rem;
+        background: #e8e8e8;
+        transition: 0.3s;
+        margin-top: 40px;
+
+    }
+
+
+    #senha { /* input de senha */
+
+        width: 70%;
+        text-align: left;
+        border: none;
+        padding: 1rem;
+        border-radius: 1rem;
+        background: #e8e8e8;
+        transition: 0.3s;
+        margin-top: 20px;
+
+    }
+
+
+    #botao { /* botão de envio */
+
+        color: #205b54;
+        width: 200px;
+        height: 30px;
+        cursor: pointer;
+        font-size: 15px;
+        border-radius: 6px;
+        margin-bottom: 0%;
+        text-align: center;
+        padding: 0; /* não remover */
+        border: none;
+        margin-top: 50px;
+        margin-bottom: 20px;
+       
+
+      }
+      
+      p{ /* cadastre-se */
+
+        color: rgb(255, 255, 255);
+        text-align: center;
+        margin-top: 40px;
+      }
+     
+      
+      #botao:hover {  /* animação clique botao */
+        background-color: #205b54; /* Cor azul quando o mouse está sobre o botão */
+        color: white; /* Altera a cor do texto para branco */
+        
+
+      }
