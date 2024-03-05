@@ -18,8 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify({ id: selectedId })
             })
             .then(response => {
-                // Trate a resposta do servidor aqui, se necessário
-                console.log('Requisição enviada com sucesso');
+                let html = '<table border="1"><tr><th>PRODUTO</th><th>VALOR</th><th>QUANTIDADE</th></tr>';
+            data.forEach(item => {
+                html += `
+                    <tr>
+                        <td>${item.nome}</td>
+                        <td>${item.valor}</td>
+                        <td>${item.quantidade}</td>
+                    </tr>
+                `;
+            });
+            html += '</table>';
             })
             .catch(error => {
                 console.error('Erro ao enviar requisição:', error);
