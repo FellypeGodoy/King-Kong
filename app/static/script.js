@@ -45,7 +45,7 @@ document.getElementById('busProd').addEventListener('click', function() {
         .then(response => response.json())
         .then(data => {
             console.log('data>>', data)
-            let html = '<table border="1"><tr><th>ALIMENTO</th><th>CARBOIDRATOS</th><th>PROTEÍNAS</th><th>GORDURAS</th><th>KCAL</th><th>CARBOIDRATOS</th></tr>';
+            let html = '<table border="1"><tr><th>ALIMENTO</th><th>CARBOIDRATOS</th><th>PROTEÍNAS</th><th>GORDURAS</th><th>PORÇÃO</th></tr>';
             data.forEach(item => {
                 html += `
                     <tr>
@@ -53,7 +53,6 @@ document.getElementById('busProd').addEventListener('click', function() {
                         <td>${item.carboidrato}</td>
                         <td>${item.proteina}</td>
                         <td>${item.gordura}</td>
-                        <td>${item.kcal}</td>
                         <td>${item.porcao}</td>
                     </tr>
                 `;
