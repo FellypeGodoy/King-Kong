@@ -164,3 +164,16 @@ body{
   transition: 100ms;
 }
 
+#quadrado {
+  width: 450px;
+  height: 300px;
+  background-color: azure;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 50vh; /* Isso define a altura da tela inteira. */
+}

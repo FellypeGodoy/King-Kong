@@ -22,25 +22,32 @@ def index():
 @app.route('/buscar_dados', methods=['GET'])
 def buscar_dados():
     try:
-        conn = connect_db()
-        cursor = conn.cursor()
+        # conn = connect_db()
+        # cursor = conn.cursor()
 
-        cursor.execute("SELECT * FROM alimentos")
-        rows = cursor.fetchall()
+        # cursor.execute("SELECT * FROM alimentos")
+        # rows = cursor.fetchall()
 
-        conn.close()
+        # conn.close()
 
         data = []
-        for row in rows:
-            data.append({
-                'nome': row[0],
-                'carboidrato': row[1],
-                'proteina': row[2],
-                'gordura': row[3],
-                'kcal': row[4],
-                'porção': row[5] 
-            })
-
+        # for row in rows:
+        #     data.append({
+        #         'nome': row[0],
+        #         'carboidrato': row[1],
+        #         'proteina': row[2],
+        #         'gordura': row[3],
+        #         'kcal': row[4],
+        #         'porcao': row[5] 
+        #     })
+        data.append({
+                'nome': 'batata',
+                'proteina': 1,
+                'gordura': 1,
+                'kcal': 1,
+                'carboidrato': 1,
+                'porcao': 1, 
+        })
         return jsonify(data)
 
     except Exception as e:
