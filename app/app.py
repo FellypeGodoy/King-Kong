@@ -21,7 +21,8 @@ def index():
 
 @app.route('/buscar_dados', methods=['GET'])
 def buscar_dados():
-    try:
+    try: 
+        data = []
         conn = connect_db()
         cursor = conn.cursor()
 
