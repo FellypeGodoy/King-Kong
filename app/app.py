@@ -22,7 +22,6 @@ def index():
 @app.route('/buscar_dados', methods=['GET'])
 def buscar_dados():
     try: 
-        data = []
         conn = connect_db()
         cursor = conn.cursor()
 
@@ -30,15 +29,14 @@ def buscar_dados():
         rows = cursor.fetchall()
 
         conn.close()
-
+        data = []
         for row in rows:
             data.append({
                 'nome': row[0],
-                'carboidrato': row[1],
+                'porcao': row[1],
                 'proteina': row[2],
                 'gordura': row[3],
-                'kcal': row[4],
-                'porcao': row[5] 
+                'carboidrato': row[4],
             })
         
         return jsonify(data)
