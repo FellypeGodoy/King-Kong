@@ -3,19 +3,23 @@ networks:
   kong:
     driver: bridge
 services:
-  # web:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   restart: on-failure
-  #   depends_on:
-  #     - postgres
-  #   links:
-  #     - postgres
-  #   networks:
-  #     - kong
-  #   env_file:
-  #     - .env
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    networks:
+      - kong
+    env_file:
+      - .env
+    expose:
+      - "8001"
+    ports:
+      - "8001:0001"
   postgres:
     image: postgres:latest
     environment:
