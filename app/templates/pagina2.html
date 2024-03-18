@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Gym Fit</title>
+    <link rel="stylesheet" href="/static/inicio.css">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="div-cabecalho">
+            <div id="div-imagem">
+                <!-- <img src="../static/imagens/gymfit.png" alt="Descrição da Imagem"> -->
+            </div>
+        </div>
+    <div class="div-btn">
+        <button>
+            <span class="box">
+                Home
+            </span>
+        </button>
+    
+        <a href="/dieta">
+            <span class="box">
+                Dieta
+            </span>
+        </a>
+
+        <a href="/">
+            <span class="box">
+                Alimentos
+            </span>
+        </a>
+
+        <button>
+            <span class="box">
+                Meu Perfil
+            </span>
+        </button>
+    
+            </div>
+        </div>
+    </header>
+
+    <div class="campos">
+        <div class="campo-texto">
+            <input id="campo1" type="text" placeholder="Nome do Alimento">
+            <input id="campo2" type="number" placeholder="Gramas">
+        </div>
+        <button id="botaoAdicionar" onclick="adicionarCampos()">+</button>
+        <button id="botaoRemover" onclick="removerCampo()">-</button>
+        <button id="botaoEnviar">Enviar</button>
+    </div>
+    <div id="dadosRecebidos"></div>
+    
+
+</div>
+<script src="../static/script2.js"></script>
+</body>
+</html>

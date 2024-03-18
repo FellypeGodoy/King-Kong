@@ -177,3 +177,41 @@ body{
   width: 100%;
   height: 50vh; /* Isso define a altura da tela inteira. */
 }
+
+#busProd {
+  width: 30%;
+  height: 30%;
+  display: inline-block;
+  padding: 20px;
+  margin-top: 100px;
+  margin-left: 30px;
+}
+
+.busProdclass {
+  padding: 17px 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0;
+  background-color: #256e66;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  color: #ffffff;
+}
+
+.busProdclass:hover {
+  letter-spacing: 3px;
+  background-color: #000000;
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(0, 0, 0) 0px 7px 29px 0px;
+}
+
+.busProdclass:active {
+  letter-spacing: 3px;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: #256e66;
+  transform: translateY(10px);
+  transition: 100ms;
+}

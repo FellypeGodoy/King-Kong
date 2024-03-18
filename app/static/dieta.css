@@ -1,0 +1,7 @@
+.campo-texto {
+    display: flex;
+}
+
+.campo-texto input {
+    margin-right: 10px; /* Espaço entre os campos de texto */
+}
