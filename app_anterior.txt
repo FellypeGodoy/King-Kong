@@ -1,0 +1,109 @@
+from flask import Flask, render_template, request, jsonify
+import psycopg2
+from os import environ
+
+app = Flask(__name__)
+
+
+def connect_db():
+    conn = psycopg2.connect(
+        host="localhost",
+        database="postgres",
+        user="postgres",
+        password="postgres"
+    )
+
+    return conn
+
+
+@app.route('/')
+def index():
+    return render_template('pagina.html')
+
+
+@app.route('/dieta')
+def dieta():
+    return render_template('pagina2.html')
+
+
+@app.route('/buscar_dados', methods=['GET'])
+def buscar_dados():
+    try: 
+        conn = connect_db()
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT * FROM alimentos")
+        rows = cursor.fetchall()
+
+        conn.close()
+        data = []
+        for row in rows:
+            data.append({
+                'nome': row[0],
+                'porcao': row[1],
+                'proteina': row[2],
+                'gordura': row[3],
+                'carboidrato': row[4],
+            })
+        
+        return jsonify(data)
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
+
+
+def pegar_porcao(data, quantidade):
+    quantidade = int(quantidade)
+    calc = (data * quantidade) / 100 
+    return calc
+
+    
+def pegar_nutricao(alimento, quantidade):
+    try:
+        conn = connect_db()
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT proteinas, gorduras, carboidratos FROM alimentos WHERE nome = %s", (alimento,))
+        row = cursor.fetchone() 
+
+        conn.close()
+        data = [
+            pegar_porcao(row[0], quantidade),
+            pegar_porcao(row[1], quantidade),
+            pegar_porcao(row[2], quantidade)
+        ]
+        return data
+    except psycopg2.Error as e:
+        return {'error': str(e)}
+
+
+def somar_nutricoes():
+    ...
+    
+@app.route('/buscar_dieta', methods=['POST'])
+def buscar_dieta():
+    data = request.json
+    final_data = {
+        'gordura': 0,
+        'proteina': 0,
+        'carboidrato': 0
+    }
+    for chave, valor in data.items():
+        alimento = chave
+        quantidade = valor
+        item = pegar_nutricao(alimento, quantidade)
+        
+        final_data['gordura'] += item[0]
+        final_data['proteina'] += item[1]
+        final_data['carboidrato'] += item[2]
+
+    final_data['gordura'] = '{:.2f}'.format(final_data['gordura'])
+    final_data['proteina'] = '{:.2f}'.format(final_data['proteina'])
+    final_data['carboidrato'] = '{:.2f}'.format(final_data['carboidrato'])
+    print(final_data)
+
+    return jsonify(final_data)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

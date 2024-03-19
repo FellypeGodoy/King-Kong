@@ -30,21 +30,29 @@ document.getElementById('botaoEnviar').addEventListener('click', enviarJSON);
     }
 
     function exibirDadosRecebidos(data) {
-        let html = '<table border="1"><tr><th>CARBOIDRATOS</th><th>PROTEÍNAS</th><th>GORDURAS</th></tr>';
-        data.forEach(item => {
-            html += `
-                <tr>
-                    <td>${item.carboidrato}</td>
-                    <td>${item.proteina}</td>
-                    <td>${item.gordura}</td>
-                </tr>
-            `;
-        });
+        let html = '<table border="1"><tr><th>Calorias</th><th>Gorduras</th><th>Carboidratos</th><th>Proteina</th><th>Sodium</th><th>Calcium</th><th>Magnesium</th><th>Potassium</th><th>Ferro</th><th>Zinco</th></tr>';
+        
+        html += `
+            <tr>
+                <td>${data.Calories}KCal</td>
+                <td>${data.Gordura}G</td>
+                <td>${data.Carbo}G</td>
+                <td>${data.Proteina}G</td>
+                <td>${data.Sodium}G</td>
+                <td>${data.Calcium}G</td>
+                <td>${data.Magnesium}G</td>
+                <td>${data.Potassium}G</td>
+                <td>${data.Ferro}G</td>
+                <td>${data.Zinco}G</td>
+            </tr>
+        `;
+    
         html += '</table>';
     
         var dadosRecebidosDiv = document.getElementById('dadosRecebidos');
         dadosRecebidosDiv.innerHTML = html;
     }
+    
     
 
     function adicionarCampos() {
