@@ -1,14 +1,8 @@
-Como rodar o serviço?
+O serviço utiliza a API edamam-docs-nutrition-api para fazer a busca dos alimentos
 
-```docker-compose up --force-recreate```
+antes de rodar o serviço é necessario preencher o .env com o id e senha da Api, para apresentações estamos utilziando a versão gratuita de desenvolvimento
 
-Roda esse comando e depois
+comando para executar:
 
-abre o banco e insere os dados que estão no arquivo de dados.sql
-
-python3 app/app.py
-
-abre o ip e sucesso
-
-se não der certo é orar
-
+cd app
+python3 app.py

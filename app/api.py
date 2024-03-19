@@ -1,11 +1,11 @@
 import requests
-
+from os import environ
 def connect(comida):
     url = 'https://api.edamam.com/api/nutrition-data'
 
     params = {
-        'app_id': '',
-        'app_key': '',
+        'app_id': environ.get("APP_ID"),
+        'app_key': environ.get("APP_KEY"),
         'nutrition-type': 'logging',
         'ingr': comida
     }
