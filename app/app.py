@@ -5,12 +5,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('pagina.html')
+    return render_template('alimentos.html')
 
 
 @app.route('/dieta')
 def dieta():
-    return render_template('pagina2.html')
+    return render_template('dieta.html')
 
 
 @app.route('/buscar_dados', methods=['POST'])
@@ -51,4 +51,5 @@ def buscar_dieta():
     return jsonify(final_data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8001, debug=True)
+

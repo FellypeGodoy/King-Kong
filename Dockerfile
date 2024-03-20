@@ -5,4 +5,4 @@ WORKDIR /usr/kingkong/
 COPY ./ /usr/kingkong/
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-CMD [ "python", "app.py" ]
+CMD [ "python", "app/app.py" ]
