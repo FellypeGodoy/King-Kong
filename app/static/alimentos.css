@@ -4,17 +4,12 @@
     margin-bottom: 15px;
     margin-left: 10px;
     max-width: 10%; 
+    position: fixed;
     
 
 }
 
-#div-imagem{  /* div da imagem | */
 
-    
-    display: inline-block;
-    
-    
-}
 .div-cabecalho{
   position:fixed;
   width: 100%;
@@ -32,26 +27,14 @@
 
 body{ 
 
-    background-color: #d4d4d4;
+  background-image: url('imagens/wpp.avif');
+  background-size: cover;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); 
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------botões do cabeçalho */
 
-.box {  
-    width: 140px;
-    float: left;
-    position: relative;
-    display: block;
-    overflow: hidden;
-    padding: 10px;
-    text-transform: uppercase;
-    font-weight: 900;
-    margin-left: 40px;
-    background-color: rgb(255, 255, 255);
-    margin-top: 15px;
-    margin-bottom: 15px;
-    
-  }
+
   
   .box:before {  /* animação botões */
     position: absolute;
@@ -97,15 +80,83 @@ body{
     transition: .3s transform linear, .3s height linear .5s;
   }
   
-  button {  /* animação botões */
+  .botao {  /* animação botões */
     color: black;
     text-decoration: none;
     cursor: pointer;
     outline: none;
     border: none;
     background: transparent;
+    
   }
 
+ #home{
+    margin-left: 170px;
+    width: 140px;
+    float: left;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: rgb(255, 255, 255);
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+
+ }
+
+ #dieta{
+  margin-left: 90px;
+  width: 140px;
+  float: left;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  background-color: rgb(255, 255, 255);
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+
+}
+
+#alimentos{
+  margin-left: 90px;
+  width: 140px;
+  float: left;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  background-color: rgb(255, 255, 255);
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+
+}
+
+#perfil{
+  margin-left: 90px;
+  width: 140px;
+  float: left;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  background-color: rgb(255, 255, 255);
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+
+}
   /* --------------------------------------------------------------------------------------------------- div master */
 
 .cx-selecao {

@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <title>Gym Fit</title>
-    <link rel="stylesheet" href="/static/inicio.css">
+    <link rel="stylesheet" href="/static/dieta.css">
     <link rel="icon" type="image/x-icon" href="logo.png">
 
 
@@ -15,39 +15,37 @@
     <header>
         <div class="div-cabecalho">
             <div id="div-imagem">
-                <!-- <img src="../static/imagens/gymfit.png" alt="Descrição da Imagem"> -->
+                <img id="logo" src="../static/imagens/gymfit.png" alt="Descrição da Imagem">
             </div>
-        </div>
-    <div class="div-btn">
-        <button>
+        
+        <a id="home" class="botao" href="/">
             <span class="box">
                 Home
             </span>
-        </button>
+        </a>
     
-        <a href="/dieta">
+        <a id="dieta" class="botao" href="/dieta">
             <span class="box">
                 Dieta
             </span>
         </a>
 
-        <a href="/">
+        <a id="alimentos" class="botao" href="/">
             <span class="box">
                 Alimentos
             </span>
         </a>
 
-        <button>
+        <a id="perfil" class="botao" href="/">
             <span class="box">
                 Meu Perfil
             </span>
-        </button>
+        </a>
     
-            </div>
         </div>
     </header>
 
-    <div class="campos">
+    <div id="pesquisa-alimentos" class="campos">
         <div class="campo-texto">
             <input id="campo1" type="text" placeholder="Nome do Alimento">
             <input id="campo2" type="number" placeholder="Gramas">

@@ -1,7 +1,172 @@
-.campo-texto {
-    display: flex;
+#logo {  /* logo */
+        
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    max-width: 10%; 
+    position: fixed;
+    
+
 }
 
-.campo-texto input {
-    margin-right: 10px; /* Espaço entre os campos de texto */
+
+.div-cabecalho{
+  position:fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: black;
+}
+
+
+.div-btn {  /* div dos botões | */
+
+    display: inline-block;
+
+}
+
+body{ 
+
+  background-image: url('imagens/wpp.avif');
+  background-size: cover;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); 
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------botões do cabeçalho */
+
+
+  
+  .box:before {  /* animação botões */
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(100%);
+  }
+  
+  .box:after {  /* animação botões */
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+  }
+  
+  .box:hover {  /* animação botões */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+  }
+  
+  .box:hover:before {  /* animação botões */
+    border-color: #256e66;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .3s;
+  }
+  
+  .box:hover:after {  /* animação botões */
+    border-color: #256e66;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .5s;
+  }
+  
+  .botao {  /* animação botões */
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: transparent;
+    
+  }
+
+ #home{
+    margin-left: 170px;
+    width: 140px;
+    float: left;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: rgb(255, 255, 255);
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+
+ }
+
+ #dieta{
+  margin-left: 90px;
+  width: 140px;
+  float: left;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  background-color: rgb(255, 255, 255);
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+
+}
+
+#alimentos{
+  margin-left: 90px;
+  width: 140px;
+  float: left;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  background-color: rgb(255, 255, 255);
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+
+}
+
+#perfil{
+  margin-left: 90px;
+  width: 140px;
+  float: left;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  background-color: rgb(255, 255, 255);
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+
+}
+
+
+#pesquisa-alimentos{
+
+        
+        margin-top: 100px;
+        width: 600px; 
+        border: 1px solid #ccc; 
+        text-align: center;
+        border-radius: 8px;
+        background: #256e66;
+    
 }
