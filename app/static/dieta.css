@@ -25,11 +25,11 @@
 
 }
 
-body{ 
-
-  background-image: url('imagens/wpp.avif');
-  background-size: cover;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------botões do cabeçalho */
@@ -169,4 +169,26 @@ body{
         border-radius: 8px;
         background: #256e66;
     
+}
+#bmiCalculator {
+  /* This will make the div take up the full width of its container */
+  width: 100%;
+  margin-top: 100px;
+}
+
+#botaoBuscarAlimentos {
+  display: inline-block;
+  width: 100%;
+  /* This will make the div clear any floated elements above it, effectively placing it below the bmiCalculator div */
+  clear: both;
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  /* float: left; Remove this line */
 }
