@@ -38,10 +38,10 @@ document.getElementById('botaoEnviar').addEventListener('click', enviarJSON);
                 <td>${data.Gordura}G</td>
                 <td>${data.Carbo}G</td>
                 <td>${data.Proteina}G</td>
-                <td>${data.Sodium}G</td>
-                <td>${data.Calcium}G</td>
-                <td>${data.Magnesium}G</td>
-                <td>${data.Potassium}G</td>
+                <td>${data.Sodium}MG</td>
+                <td>${data.Calcium}MG</td>
+                <td>${data.Magnesium}MG</td>
+                <td>${data.Potassium}MG</td>
                 <td>${data.Ferro}G</td>
                 <td>${data.Zinco}G</td>
             </tr>

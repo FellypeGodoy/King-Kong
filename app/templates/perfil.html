@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gym Fit</title>
+    <link rel="stylesheet" href="/static/dieta.css">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="div-cabecalho">
+            <div id="div-imagem">
+                <img id="logo" src="../static/imagens/gymfit.png" alt="Descrição da Imagem">
+            </div>
+            
+            <a id="home" class="botao" href="/">
+                <span class="box">
+                Home
+            </span>
+        </a>
+        
+        <a id="dieta" class="botao" href="/dieta">
+            <span class="box">
+                Dieta
+            </span>
+        </a>
+        
+        <a id="alimentos" class="botao" href="/">
+            <span class="box">
+                Alimentos
+            </span>
+        </a>
+        
+        <a id="perfil" class="botao" href="/perfil">
+            <span class="box">
+                Meu Perfil
+            </span>
+        </a>
+    </div> 
+</header>
+<style>
+<style>
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botaoBuscarAlimentos {
+    margin-bottom: 20px; /* Adjust this value as needed */
+}
+
+    #caloriesChart {
+    width: 200px;
+    height: 500px;
+}
+    </style>
+<div class="centered" style="margin-bottom: 40px; margin-top: 100px;">
+    <input type="text" id="weight" placeholder="Peso em kg">
+    <button onclick="calculateBMI()">Calcular IMC</button>
+    <p id="result"></p>
+</div>
+
+<div class="centered" id="botaoBuscarAlimentos">
+    <button onclick="buscarAlimentos()" id="botaoBuscarAlimentos" class="botaoBuscarAlimentos">
+        <span class="box">
+            Buscar Refeições
+        </span>
+    </button>
+    <div id="dadosRecebidos"></div>
+</div>
+
+<div class="centered">
+    <button onclick="BuscarRefeicoes()" id="botaoBuscarRefeicoes" class="botaoBuscarAlimentos">
+        <span class="box" style="margin-top: 20px;">
+            Buscar Refeições do Dia
+        </span>
+    </button>
+    <div class="thin-line"></div>
+    <canvas id="caloriesChart" style="width: 500px; height: 250px;"></canvas>
+</div>
+</body>
+
+<script>
+    function exibirDadosRecebidos(dataList) {
+        let html = '<table border="1"><tr><th>Alimento</th><th>Calories</th><th>Fats</th><th>Carbs</th><th>Protein</th><th>Sodium</th><th>Calcium</th><th>Magnesium</th><th>Potassium</th><th>Iron</th><th>Zinc</th></tr>';
+    
+        for (let i = 0; i < dataList.length; i++) {
+            let data = dataList[i];
+            let nutrition = data['calorias da refeicao'];
+            let comida = data['alimentos'];
+    
+            html += `
+                <tr>
+                    <td>${comida}</td>
+                    <td>${nutrition.Calories}KCal</td>
+                    <td>${nutrition.Gordura}G</td>
+                    <td>${nutrition.Carbo}G</td>
+                    <td>${nutrition.Proteina}G</td>
+                    <td>${nutrition.Sodium}MG</td>
+                    <td>${nutrition.Calcium}MG</td>
+                    <td>${nutrition.Magnesium}MG</td>
+                    <td>${nutrition.Potassium}MG</td>
+                    <td>${nutrition.Ferro}G</td>
+                    <td>${nutrition.Zinco}G</td>
+                </tr>
+            `;
+        }
+    
+        html += '</table>';
+    
+        var dadosRecebidosDiv = document.getElementById('dadosRecebidos');
+        dadosRecebidosDiv.innerHTML = html;
+    };
+    
+
+function buscarAlimentos() {
+    fetch('/buscar_refeicoes', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+.then(response => {
+    console.log('Server response:', response);
+    return response.json();
+})
+.then(data => {
+    console.log('Parsed data:', data);
+    exibirDadosRecebidos(data);
+})
+.catch(error => {
+    console.error('Erro ao buscar alimentos:', error);
+});
+}
+
+function calculateBMI() {
+    let weight = document.getElementById('weight').value;
+    let height = document.getElementById('height').value;
+    
+    // Convertendo peso e altura para números
+    weight = parseFloat(weight);
+    height = parseFloat(height) / 100; // Convertendo altura para metros
+    
+    // Calculando o IMC
+    let bmi = weight / (height * height);
+    
+    // Exibindo o resultado
+    document.getElementById('result').innerHTML = 'Seu IMC é: ' + bmi.toFixed(2);
+}
+
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, '0');
+let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+let yyyy = today.getFullYear();
+
+let dateStr = mm + '/' + dd + '/' + yyyy;
+
+// Now, use this dateStr in your chart configuration
+function createCaloriesChart(dados) {
+    var ctx = document.getElementById('caloriesChart').getContext('2d');
+    var labels = Array.from({length: dados.length}, (_, i) => i + 1);
+    var data = dados.map(value => parseFloat(value));
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Calories',
+                data: data,
+                backgroundColor: "#536DFD",
+            }]
+        },
+        options: {
+            maintainAspectRatio: true,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false,
+                    onClick: null
+                },
+                title: {
+                    display: true,
+                    text: 'Refeicoes do dia: ' + dateStr
+                },
+                tooltip: {
+                    enabled: true,
+                    mode: 'index',
+                    intersect: false
+                }
+            }
+        }
+    }); // Closing bracket for new Chart()
+} // Closing bracket for createCaloriesChart()
+
+function BuscarRefeicoes() {
+    fetch('/buscar_refeicoes_diarias', {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        createCaloriesChart(data);
+    })
+    .catch(error => console.error('Error:', error));
+}</script>
+
+</html>
