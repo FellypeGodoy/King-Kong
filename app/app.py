@@ -29,6 +29,17 @@ def buscar_dados():
     
     return jsonify(final_data)
 
+def fetch_meals(collection):
+    print("Fetching meals")
+    meals = list(collection.find({}, {"_id": 0}))
+
+    return jsonify(meals)
+
+
+@app.route('/perfil', methods=['GET'])
+def perfil():
+    return render_template('perfil.html')
+
 
 def fetch_meals(collection):
     print("Fetching meals")
@@ -52,10 +63,6 @@ def buscar_refeicoes():
     print(meals)
     return jsonify(meals)
 
-
-@app.route('/perfil', methods=['GET'])
-def perfil():
-    return render_template('perfil.html')
 
 
 @app.route('/buscar_dieta', methods=['POST'])

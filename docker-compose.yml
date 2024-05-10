@@ -1,16 +1,26 @@
 version: '3.2'
+networks:
+  kong:
+    driver: bridge
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile
     restart: on-failure
-    # networks:
-    #   - kong
+    networks:
+      - kong
     env_file:
       - .env
     ports:
       - "8001:8001"
+  mongodb:
+    hostname: "mongodb"
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - kong
   # postgres:
   #   image: postgres:latest
   #   environment:
@@ -21,6 +31,3 @@ services:
   #     - "5432:5432"
   #   networks:
   #     - kong
-# networks:
-#   kong:
-#     driver: bridge
